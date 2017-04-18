@@ -1,4 +1,5 @@
 # NativeScript Firebase plugin
+# This is being modified by Sage Arbor and not updated live from Eddys git example
 
 <img src="docs/images/firebase-logo.png" width="116px" height="32px" alt="Firebase"/><br/>
 Google's realtime app platform (Database, Authentication, Configuration, Notifications) [firebase.google.com](https://firebase.google.com/)
