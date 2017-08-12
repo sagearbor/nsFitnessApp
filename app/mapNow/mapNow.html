@@ -1,0 +1,47 @@
+
+    <ActionBar title="ArborLife" icon="" class="action-bar">
+      <ActionItem (tap)="logout()">
+        <Button text="Logout" class="action-item"></Button>
+      </ActionItem>      
+    </ActionBar>
+
+
+<ScrollView>
+    <StackLayout>
+    <Label class="gold card" textWrap="true" [text]="message$ | async"></Label>
+    <Image class="m-5" horizontalAlignment="center" width="100" height="100" [src]="'~/assets/arborLife4icons-158x158.png'"></Image>
+    <Label class="h2 header" text="sMAP currentLoc"></Label>
+        <GridLayout columns="2*, 2*, 1*" rows="1*,1*,1*,1*, 1*, 1*, 1*" class="form">
+              <Button [text]="movealDefault ? 'MOVEAL' : 'moveAL'" row="0" col="0" class="btn btn-primary" (tap)="goToMoveAL()"></Button>
+              <Button [text]="eatDefault ? 'EATAL' : 'eatAL'" row="0" col="1" class="btn btn-primary" (tap)="goToEatAL()"></Button>
+              <Button [text]="gamealDefault ? 'THINKAL' : 'thinkAL'" row="1" col="0" class="btn btn-primary" (tap)="goToThinkAL()"></Button>
+              <Button [text]="gamealDefault ? 'GAMEAL' : 'gameAL'" row="1" col="1" class="btn btn-primary" (tap)="goToGameAL()"></Button>
+              <Button text="log666" row="2" col="0" class="btn btn-primary" (tap)="goToMoveAL()"></Button>
+              <Button text="race666" row="2" col="1" class="btn btn-primary" (tap)="goToMoveAL()"></Button>
+              <Button text="max666" row="3" col="0" class="btn btn-primary" (tap)="goToMoveAL()"></Button>
+              <Button text="pushup666" row="3" col="1" class="btn btn-primary" (tap)="goToMoveAL()"></Button>
+              <Button text="attendance666" row="4" col="0" class="btn btn-primary" (tap)="goToMoveAL()"></Button>
+              <Button text="666" row="4" col="1" class="btn btn-primary" (tap)="goToMoveAL()"></Button>
+              <option value="createTeam" row="5" col="0" >Create Team</option>
+              <option value="createGame" row="5" col="1">Create Game</option>
+              <option value="joinTeam" row="6" col="0">Join Team</option>
+        </GridLayout> 
+<!--
+        <GridLayout columns="4*,4*"  class="form"> 
+              <TextField col="0"> moveAL </TextField>
+              <TextField col="1"> eatAL </TextField>
+              <TextField col="0"> thinkAL </TextField>
+              <TextField col="1"> hameAL </TextField>
+              <Button horizontalAlignment="center" class="btn" text="log" (tap)="forgotPassword()"></Button>
+              <Button horizontalAlignment="center" class="btn" text="race" (tap)="forgotPassword()"></Button>
+              <Button horizontalAlignment="center" class="btn" text="max" (tap)="forgotPassword()"></Button>
+              <Button horizontalAlignment="center" class="btn" text="pushup" (tap)="forgotPassword()"></Button>
+              <option value="createTeam">Create Team</option>
+              <option value="createGame">Create Game</option>
+              <option value="joinTeam">Join Team</option>
+        </GridLayout>
+-->
+    <Label class="h2 header" text="My Wish List">xx random text xxx</Label>
+    </StackLayout>
+
+</ScrollView>

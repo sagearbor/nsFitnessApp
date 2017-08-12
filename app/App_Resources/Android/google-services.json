@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "621841679133",
+    "firebase_url": "https://pedometergroupmapcompetition.firebaseio.com",
+    "project_id": "pedometergroupmapcompetition",
+    "storage_bucket": "pedometergroupmapcompetition.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621841679133:android:f9ed3e1bbe657ac1",
+        "android_client_info": {
+          "package_name": "org.nativescript.socialFitV0p001"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621841679133-4r7nq0te98oes8p18e7hm4g3tjsn35be.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLhDIUi9l1czxe0DOvGUiN0fMJcYN6ozs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

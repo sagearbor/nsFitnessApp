@@ -1,0 +1,43 @@
+
+    <ActionBar title="MoveAL" icon="" class="action-bar">
+      <ActionItem (tap)="logout()">
+        <Button text="Logout" class="action-item"></Button>
+      </ActionItem>      
+    </ActionBar>
+
+
+<ScrollView>
+    <StackLayout>
+    <Label class="gold card" textWrap="true" [text]="message$ | async"></Label>
+    <Label class="h2 header" text="sMAP currentLoc"></Label>
+        <!-- <GridLayout columns="1,8" class="form"> -->
+            <div name="justAList1">
+              <Button [text]="movealDefault ? 'MOVEAL' : 'moveAL'" class="btn btn-primary" (tap)="submit()"></Button>
+              <Button [text]="eatDefault ? 'MOVEAL' : 'eatAL'" class="btn btn-primary" (tap)="submit()"></Button>
+              <Button horizontalAlignment="center" class="btn" text="thinkAL" (tap)="forgotPassword()"></Button>
+              <Button [text]="gamealDefault ? 'MOVEAL' : 'gameAL'" class="btn btn-primary" (tap)="submit()"></Button>
+              <TextField> moveAL </TextField>
+              <TextField> eatAL </TextField>
+              <TextField> thinkAL </TextField>
+              <TextField> gameAL </TextField>
+            </div> 
+        <!-- </GridLayout> -->
+    <StackLayout class="card">    
+        <GridLayout columns="2*,1*" class="form">
+            <select name="gameType666">
+              <Button horizontalAlignment="center" class="btn" text="log" (tap)="forgotPassword()"></Button>
+              <Button horizontalAlignment="center" class="btn" text="race" (tap)="forgotPassword()"></Button>
+              <Button horizontalAlignment="center" class="btn" text="max" (tap)="forgotPassword()"></Button>
+              <Button horizontalAlignment="center" class="btn" text="pushup" (tap)="forgotPassword()"></Button>
+            </select>
+            <select name="gameOption666">
+              <option value="createTeam">Create Team</option>
+              <option value="createGame">Create Game</option>
+              <option value="joinTeam">Join Team</option>
+            </select>
+        </GridLayout>
+    </StackLayout>
+    <Label class="h2 header" text="My Wish List">xx random text xxx</Label>
+    </StackLayout>
+
+</ScrollView>
