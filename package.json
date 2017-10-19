@@ -1,13 +1,10 @@
 {
-  "description": "Trying to make map app, starting from Giftler. ... 02",
+  "description": "Trying to make map app, starting from Giftler. ... 11",
   "license": "SEE LICENSE IN <your-license-filename>",
   "readme": "NativeScript Application",
   "repository": "<fill-your-repository-here>",
   "nativescript": {
-    "id": "org.nativescript.socialFitV0p001",
-    "tns-ios": {
-      "version": "3.2.0"
-    }
+    "id": "org.nativescript.socialFitV0p001"
   },
   "dependencies": {
     "@angular/animations": "~4.1.0",
