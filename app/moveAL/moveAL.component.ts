@@ -65,6 +65,10 @@ ngOnInit(){
     this.routerExtensions.navigate(["/"], { clearHistory: true } );
   }
 
+  goToMALcreate(){
+    this.routerExtensions.navigate(["/moveAL-create"], { clearHistory: true } );
+  }
+
   logout() {
     this.firebaseService.logout();
     this.routerExtensions.navigate(["/login"], { clearHistory: true } );

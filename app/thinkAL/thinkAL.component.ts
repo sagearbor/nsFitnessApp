@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Page} from "ui/page";
 import {BackendService, FirebaseService} from "../services";
-import {Groups} from "../models";
+import {Gift} from "../models";
 import {RouterExtensions} from 'nativescript-angular/router/router-extensions';
 import {Router} from '@angular/router';
 
