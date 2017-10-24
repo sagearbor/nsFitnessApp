@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  selector: "gf-mapNow",
+  selector: "al-mapNow",
   templateUrl: "mapNow.html"
 })
 export class MapNowComponent implements OnInit {
@@ -67,6 +67,10 @@ ngOnInit(){
 
   goToMoveAL(){
     this.routerExtensions.navigate(["/moveAL"], { clearHistory: true } );
+  }
+
+  goToMoveALCreate(){
+    this.routerExtensions.navigate(["/moveALCreate"], { clearHistory: true } );
   }
 
   goToThinkAL(){

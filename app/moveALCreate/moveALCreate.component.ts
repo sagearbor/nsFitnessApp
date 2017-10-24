@@ -8,8 +8,8 @@ import {Router} from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  selector: "gf-moveAL-create",
-  templateUrl: "moveAL-create.html"
+  selector: "al-moveALCreate",
+  templateUrl: "moveALCreate.html"
 })
 export class MoveALCreateComponent implements OnInit {
 
@@ -65,8 +65,8 @@ ngOnInit(){
     this.routerExtensions.navigate(["/"], { clearHistory: true } );
   }
 
-  goToMALcreate(){
-    this.routerExtensions.navigate(["/moveAL-create"], { clearHistory: true } );
+  goToMoveALCreate(){
+    this.routerExtensions.navigate(["/moveALCreate"], { clearHistory: true } );
   }
 
   logout() {

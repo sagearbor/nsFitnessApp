@@ -16,7 +16,7 @@ var img;
 
 @Component({
   moduleId: module.id,
-  selector: "gf-list-detail",
+  selector: "al-list-detail",
   templateUrl: "list-detail.html"
 })
 export class ListDetailComponent implements OnInit {

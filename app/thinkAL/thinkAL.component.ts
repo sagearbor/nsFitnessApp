@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  selector: "gf-thinkAL",
+  selector: "al-thinkAL",
   templateUrl: "thinkAL.html"
 })
 export class ThinkALComponent implements OnInit {

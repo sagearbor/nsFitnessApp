@@ -2,8 +2,8 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NgModule } from "@angular/core";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
-import { moveALCreateRouting } from "./moveAL-create.routes";
-import { MoveALCreateComponent } from "./moveAL-create.component";
+import { moveALCreateRouting } from "./moveALCreate.routes";
+import { MoveALCreateComponent } from "./moveALCreate.component";
 
 @NgModule({
   imports: [

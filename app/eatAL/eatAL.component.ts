@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  selector: "gf-eatAL",
+  selector: "al-eatAL",
   templateUrl: "eatAL.html"
 })
 export class EatALComponent implements OnInit {

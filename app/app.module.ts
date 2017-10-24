@@ -14,6 +14,7 @@ import { MapNowModule } from "./mapNow/mapNow.module";
 import { EatALModule } from "./eatAL/eatAL.module";
 import { GameALModule } from "./gameAL/gameAL.module";
 import { MoveALModule } from "./moveAL/moveAL.module";
+import { MoveALCreateModule } from "./moveALCreate/moveALCreate.module";
 import { ThinkALModule } from "./thinkAL/thinkAL.module";
 
 
@@ -36,6 +37,7 @@ import { ThinkALModule } from "./thinkAL/thinkAL.module";
     EatALModule,
     GameALModule,
     MoveALModule,
+    MoveALCreateModule,
     ThinkALModule
   ],
   declarations: [

@@ -5,10 +5,10 @@ import {BackendService, FirebaseService} from "../services";
 import {Gift} from "../models";
 import {RouterExtensions} from 'nativescript-angular/router/router-extensions';
 import {Router} from '@angular/router';
-
+ 
 @Component({
   moduleId: module.id,
-  selector: "gf-moveAL",
+  selector: "al-moveAL",
   templateUrl: "moveAL.html"
 })
 export class MoveALComponent implements OnInit {
@@ -65,8 +65,8 @@ ngOnInit(){
     this.routerExtensions.navigate(["/"], { clearHistory: true } );
   }
 
-  goToMALcreate(){
-    this.routerExtensions.navigate(["/moveAL-create"], { clearHistory: true } );
+  goToMoveALCreate(){
+    this.routerExtensions.navigate(["/moveALCreate"], { clearHistory: true } );
   }
 
   logout() {

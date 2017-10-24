@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  selector: "gf-gameAL",
+  selector: "al-gameAL",
   templateUrl: "gameAL.html"
 })
 export class GameALComponent implements OnInit {

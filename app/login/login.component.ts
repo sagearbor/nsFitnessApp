@@ -7,7 +7,7 @@ import { RouterExtensions } from 'nativescript-angular/router/router-extensions'
 
 @Component({
   moduleId: module.id,
-  selector: 'gf-login',
+  selector: 'al-login',
   templateUrl: 'login.html'
 })
 export class LoginComponent {

@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 
 @Component({
   moduleId: module.id,
-  selector: "gf-list",
+  selector: "al-list",
   templateUrl: "list.html"
 })
 export class ListComponent implements OnInit {
