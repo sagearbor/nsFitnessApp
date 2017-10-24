@@ -8,6 +8,7 @@
 ###   GIT pull down seemed broken, but my saved vesion 8 worked so Im started there, 
 ###         edited one button and saving as v11, saving to github.  
 ###   Version 9,10 will all be unfunctional
+###   Added funcitonal click to moveALCreate in version12
 ###
 ### NEXT STEPS
 ###   1.06) Add sidedrawer (now free) - Join, Create --> Group, Game, Goal 

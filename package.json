@@ -4,7 +4,10 @@
   "readme": "NativeScript Application",
   "repository": "<fill-your-repository-here>",
   "nativescript": {
-    "id": "org.nativescript.socialFitV0p001"
+    "id": "org.nativescript.socialFitV0p001",
+    "tns-ios": {
+      "version": "3.2.0"
+    }
   },
   "dependencies": {
     "@angular/animations": "~4.1.0",
