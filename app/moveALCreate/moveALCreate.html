@@ -5,17 +5,63 @@
       </ActionItem>      
     </ActionBar>
 
-
 <ScrollView>
     <StackLayout>
-    <Label class="gold card" textWrap="true" [text]="message$ | async"></Label>
-    <Image class="m-5" horizontalAlignment="center" width="100" height="100" [src]="'~/assets/arborLife4icons-158x158.png'"></Image>
-    <Label class="h2 header" text="sMAP currentLoc"></Label>
-        <GridLayout columns="2*, 2*, 1*" rows="1*,1*,1*,1*, 1*, 1*, 1*" class="form">
+        <Label class="gold card" textWrap="true" [text]="message$ | async"></Label>
+        <Image class="m-5" horizontalAlignment="center" width="100" height="100" [src]="'~/assets/arborLife4icons-158x158.png'"></Image>
+        <Label class="h2 header" text="sMAP currentLoc"></Label>
+        <GridLayout columns="2*, 2*" rows="1*,1*" class="form">
               <Button [text]="movealDefault ? 'MOVEAL' : 'moveALxx'" row="0" col="0" class="btn btn-primary" (tap)="goToMoveAL()"></Button>
               <Button [text]="mapnowalDefault ? 'MAPNOWAL' : 'mapNowAL'" row="0" col="1" class="btn btn-primary" (tap)="goToMapNowAL()"></Button>
-        </GridLayout> 
-    <Label class="h2 header" text="My Wish List">xx random text xxx</Label>
+        </GridLayout>
+    <Label class="h2 header" text="I want..."></Label>
+    <StackLayout class="card">
+        <GridLayout columns="2*,1*" class="form">
+            <TextField hint="Enter new group" class="input input-border" col="0" #group [(ngModel)]="name"></TextField>
+            <Button class="btn btn-primary" col="1" text="Save" (tap)="addGroup()"></Button>
+        </GridLayout>
+    </StackLayout>
+    <StackLayout class="card">
+        <GridLayout columns="2*,1*" class="form">
+            <TextField hint="Enter new gift" class="input input-border" col="0" #gift [(ngModel)]="namee"></TextField>
+            <Button class="btn btn-primary" col="1" text="Save" (tap)="addGift()"></Button>
+        </GridLayout>
+    </StackLayout>
+        <GridLayout columns="1*" rows="1*, 1*, 1*" class="form">
+              <Label  [text]="'-----------------'" row="0" col="0" class="title-view-item" textAlignment="center"> </Label>
+              <Label  [text]="'List Groups belong to beloww'" row="1" col="0" class="title-view-item" textAlignment="center"> </Label>
+              <Label  [text]="'**-----------------*'" row="2" col="0" class="title-view-item" textAlignment="center"> </Label>
+        </GridLayout>
+
+
+    <StackLayout class="card">
+        <ListView [items]="gifts$ | async"  height="300">
+	    <ng-template let-item="item">
+	        <GridLayout columns="auto,*,auto">
+			<Image class="m-5" horizontalAlignment="left" col="0" width="40" height="40" [src]="item.imagepath.length>0 ? item.imagepath : '~/assets/camera.png'"></Image>
+			<Label class="m-5"  (tap)="viewDetail(item.id)" col="1" [text]='item.name'></Label>
+			<Image class="m-5" col="2" horizontalAlignment="right" width="40" height="40" (tap)="delete(item)" [src]="'~/assets/trash.png'"></Image>
+		</GridLayout>
+	    </ng-template>
+        </ListView>
     </StackLayout>
 
+
+
+
+
+    <StackLayout class="card">
+        <Label class="font-weight-bold" textWrap="true" [text]="message$ | async"></Label>
+        <GridLayout columns="2*,1*" class="form">
+            <TextField class="input input-border" col="0" #gift [(ngModel)]="name"></TextField>
+            <Button class="btn btn-primary" col="1" text="Save" (tap)="add()"></Button>
+        </GridLayout>
+    <Label class="h2 header" text="My Wish List">xx random text xxx</Label>
+    </StackLayout>
+    </StackLayout>
+
+
+
 </ScrollView>
+
+

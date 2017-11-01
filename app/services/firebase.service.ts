@@ -77,6 +77,22 @@ export class FirebaseService {
     }).share();              
   }
 
+  getMyGroupList(): Observable<any> {
+    return new Observable((observer: any) => {
+      let path = 'groups';
+
+        let onValueEvent = (snapshot: any) => {
+          this.ngZone.run(() => {
+            let results = this.handleSnapshot(snapshot.value);
+            console.log(JSON.stringify(results))
+             observer.next(results);
+          });
+        };
+        firebase.addValueEventListener(onValueEvent, `/${path}`);
+    }).share();
+  }
+
+
   getMyGift(id: string): Observable<any> {
     return new Observable((observer: any) => {
       observer.next(this._allItems.filter(s => s.id === id)[0]);

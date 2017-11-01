@@ -34,7 +34,7 @@ ngOnInit(){
   this.message$ = <any>this.firebaseService.getMyMessage();
 }
 
-  add() {
+  addGift() {
      this.gift = new Gift(
       this.id,
       this.name,
@@ -47,7 +47,21 @@ ngOnInit(){
       this.name = "";
       alert(message);
     })   
-    
+  }
+
+  addGroup() {
+     this.gift = new Gift(
+      this.id,
+      this.name,
+      this.date,
+      this.description,
+      this.imagepath,
+      this.UID)
+    let myGift:string = this.gift.name;
+    this.firebaseService.add(myGift).then((message:any) => {
+      this.name = "";
+      alert(message);
+    })
   }
 
   delete(gift: Gift) {
