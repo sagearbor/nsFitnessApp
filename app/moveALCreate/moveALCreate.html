@@ -9,17 +9,25 @@
     <StackLayout>
         <Label class="gold card" textWrap="true" [text]="message$ | async"></Label>
         <Image class="m-5" horizontalAlignment="center" width="100" height="100" [src]="'~/assets/arborLife4icons-158x158.png'"></Image>
-        <Label class="h2 header" text="sMAP currentLoc"></Label>
         <GridLayout columns="2*, 2*" rows="1*,1*" class="form">
-              <Button [text]="movealDefault ? 'MOVEAL' : 'moveALxx'" row="0" col="0" class="btn btn-primary" (tap)="goToMoveAL()"></Button>
-              <Button [text]="mapnowalDefault ? 'MAPNOWAL' : 'mapNowAL'" row="0" col="1" class="btn btn-primary" (tap)="goToMapNowAL()"></Button>
+           <Button [text]="movealDefault ? 'MOVEAL' : 'moveALxx'" row="0" col="0" class="btn btn-primary" (tap)="goToMoveAL()"></Button>
+           <Button [text]="mapnowalDefault ? 'MAPNOWAL' : 'mapNowAL'" row="0" col="1" class="btn btn-primary" (tap)="goToMapNowAL()"></Button>
         </GridLayout>
-    <Label class="h2 header" text="I want..."></Label>
-    <StackLayout class="card">
-        <GridLayout columns="2*,1*" class="form">
-            <TextField hint="Enter new group" class="input input-border" col="0" #group [(ngModel)]="name"></TextField>
-            <Button class="btn btn-primary" col="1" text="Save" (tap)="addGroup()"></Button>
-        </GridLayout>
+
+    	<StackLayout class="card">
+        <GridLayout rows="auto,auto,auto,auto" columns="auto,auto" class="form">
+            <TextField hint="Enter new group" class="input input-border" row="0" col="0" #group [(ngModel)]="name"></TextField>
+            <Button class="btn btn-primary" row="0" col="1" text="Save" (tap)="addGroup()"></Button>
+
+            <TextField hint="Description of group" class="input input-border" row="1" col="0" #group [(ngModel)]="description"></TextField>
+            <TextField hint="Domainname" class="input input-border" row="1" col="1" #group [(ngModel)]="domainname"></TextField>
+
+            <TextField hint="Country" class="input input-border" row="2" col="0" #group [(ngModel)]="country"></TextField>
+
+            <TextField hint="Longitude" class="input input-border" row="3" col="0" #group [(ngModel)]="longitude"></TextField>
+            <TextField hint="Latitude" class="input input-border" row="3" col="1" #group [(ngModel)]="latitude"></TextField>
+
+	</GridLayout>
     </StackLayout>
     <StackLayout class="card">
         <GridLayout columns="2*,1*" class="form">
@@ -30,7 +38,7 @@
         <GridLayout columns="1*" rows="1*, 1*, 1*" class="form">
               <Label  [text]="'-----------------'" row="0" col="0" class="title-view-item" textAlignment="center"> </Label>
               <Label  [text]="'List Groups belong to beloww'" row="1" col="0" class="title-view-item" textAlignment="center"> </Label>
-              <Label  [text]="'**-----------------*'" row="2" col="0" class="title-view-item" textAlignment="center"> </Label>
+              <Label  [text]="'**-----------------**'" row="2" col="0" class="title-view-item" textAlignment="center"> </Label>
         </GridLayout>
 
 

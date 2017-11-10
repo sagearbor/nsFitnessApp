@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import {Page} from "ui/page";
 import {BackendService, FirebaseService} from "../services";
 import {Gift} from "../models";
+import {Group} from "../models";
 import {RouterExtensions} from 'nativescript-angular/router/router-extensions';
 import {Router} from '@angular/router';
 
@@ -17,11 +18,16 @@ export class MoveALCreateComponent implements OnInit {
   name: string;
   date: string;
   description: string;
-  imagepath: string;
+  domainname: string;
+  country: string;
+  latitude: string;
+  longitude: string;
   UID: string;
   public gift: Gift;
+  public group: Group;
 
   public gifts$: Observable<any>;
+  public groups$: Observable<any>;
   public message$: Observable<any>;
   
   constructor(private routerExtensions: RouterExtensions,
@@ -31,42 +37,41 @@ export class MoveALCreateComponent implements OnInit {
 
 ngOnInit(){
   this.gifts$ = <any>this.firebaseService.getMyWishList();
+  this.groups$ = <any>this.firebaseService.getMyGroupList();
   this.message$ = <any>this.firebaseService.getMyMessage();
 }
 
-  addGift() {
-     this.gift = new Gift(
-      this.id,
-      this.name,
-      this.date,
-      this.description,
-      this.imagepath,
-      this.UID)
-    let myGift:string = this.gift.name;
-    this.firebaseService.add(myGift).then((message:any) => {
-      this.name = "";
-      alert(message);
-    })   
-  }
-
   addGroup() {
-     this.gift = new Gift(
+     this.group = new Group(
       this.id,
       this.name,
       this.date,
       this.description,
-      this.imagepath,
+      this.domainname,
+      this.country,
+      this.latitude,
+      this.longitude,
       this.UID)
-    let myGift:string = this.gift.name;
-    this.firebaseService.add(myGift).then((message:any) => {
+    let myGroup:string = this.group.name;
+    let myDescription:string = this.group.description;
+    let myDomainname:string = this.group.domainname;
+    let myCountry:string = this.group.country;
+    let myLatitude:string = this.group.latitude;
+    let myLongitude:string = this.group.longitude;
+    this.firebaseService.addGroup(myGroup,myDescription,myDomainname,myCountry,myLatitude,myLongitude).then((message:any) => {
       this.name = "";
+      this.description = "";
+      this.domainname = "";
+      this.country = "";
+      this.latitude = "";
+      this.longitude = "";
       alert(message);
     })
   }
 
   delete(gift: Gift) {
     this.firebaseService.delete(gift)
-      .catch(() => {
+    .catch(() => {
         alert("An error occurred while deleting an item from your list.");
       });
   }

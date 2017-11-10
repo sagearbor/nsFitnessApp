@@ -1,5 +1,5 @@
 import {Injectable, NgZone} from "@angular/core";
-import {User, Gift} from "../models";
+import {User, Gift, Group} from "../models";
 import { BackendService } from "./backend.service";
 import firebase = require("nativescript-plugin-firebase");
 import {Observable} from 'rxjs/Observable';
@@ -79,7 +79,7 @@ export class FirebaseService {
 
   getMyGroupList(): Observable<any> {
     return new Observable((observer: any) => {
-      let path = 'groups';
+      let path = 'Groups';
 
         let onValueEvent = (snapshot: any) => {
           this.ngZone.run(() => {
@@ -158,6 +158,19 @@ export class FirebaseService {
         function (errorMessage:any) {
           console.log(errorMessage);
         }); 
+  }
+
+  addGroup(group: string, description:string, domainname:string, country:string, longitude:string, latitude:string) {
+    return firebase.push(
+        "/Groups",
+        { "name": group, "description": description, "domainname": domainname, "country": country, "longitude": longitude, "latitude": latitude, "UID": BackendService.token, "date": 0 - Date.now()}
+      ).then(
+        function (result:any) {
+          return 'Group added - you are admin of the group!';
+        },
+        function (errorMessage:any) {
+          console.log(errorMessage);
+        });
   }
 
   editGift(id:string, description: string, imagepath: string){

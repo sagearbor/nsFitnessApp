@@ -4,5 +4,6 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./gift.model"));
+__export(require("./group.model"));
 __export(require("./user.model"));
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFBLGtDQUE2QjtBQUM3QixrQ0FBNkIiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgKiBmcm9tIFwiLi9naWZ0Lm1vZGVsXCI7XG5leHBvcnQgKiBmcm9tIFwiLi91c2VyLm1vZGVsXCI7Il19
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFBLGtDQUE2QjtBQUM3QixtQ0FBOEI7QUFDOUIsa0NBQTZCIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSBcIi4vZ2lmdC5tb2RlbFwiO1xuZXhwb3J0ICogZnJvbSBcIi4vZ3JvdXAubW9kZWxcIjtcbmV4cG9ydCAqIGZyb20gXCIuL3VzZXIubW9kZWxcIjtcbiJdfQ==
