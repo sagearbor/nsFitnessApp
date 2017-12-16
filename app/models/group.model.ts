@@ -5,10 +5,9 @@ export class Group {
         public name: string,
         public date: string,
         public description: string,
-        public domainname: string,
-        public country: string,
-        public latitude: string,
-        public longitude: string,
+	public domainname: string,
+	public privacy: string,
+	public members: string,
         public UID: string 
 	)
     {}   

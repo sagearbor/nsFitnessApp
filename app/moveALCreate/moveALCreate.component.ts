@@ -6,22 +6,21 @@ import {Gift} from "../models";
 import {Group} from "../models";
 import {RouterExtensions} from 'nativescript-angular/router/router-extensions';
 import {Router} from '@angular/router';
-
+ 
 @Component({
   moduleId: module.id,
   selector: "al-moveALCreate",
   templateUrl: "moveALCreate.html"
 })
-export class MoveALCreateComponent implements OnInit {
 
+export class MoveALCreateComponent implements OnInit {
   id: string;
   name: string;
   date: string;
   description: string;
   domainname: string;
-  country: string;
-  latitude: string;
-  longitude: string;
+  privacy: string;
+  members: string;
   UID: string;
   public gift: Gift;
   public group: Group;
@@ -48,23 +47,18 @@ ngOnInit(){
       this.date,
       this.description,
       this.domainname,
-      this.country,
-      this.latitude,
-      this.longitude,
+      this.privacy,
+      this.members,
       this.UID)
-    let myGroup:string = this.group.name;
-    let myDescription:string = this.group.description;
-    let myDomainname:string = this.group.domainname;
-    let myCountry:string = this.group.country;
-    let myLatitude:string = this.group.latitude;
-    let myLongitude:string = this.group.longitude;
-    this.firebaseService.addGroup(myGroup,myDescription,myDomainname,myCountry,myLatitude,myLongitude).then((message:any) => {
+    let groupName:string = this.group.name;
+    let groupDescription:string = this.group.description;
+    let groupDomainname:string = this.group.domainname;
+    let groupPrivacy:string = this.group.privacy;
+    this.firebaseService.addGroup(groupName,groupDescription,groupDomainname,groupPrivacy).then((message:any) => {
       this.name = "";
       this.description = "";
       this.domainname = "";
-      this.country = "";
-      this.latitude = "";
-      this.longitude = "";
+      this.privacy = "";
       alert(message);
     })
   }

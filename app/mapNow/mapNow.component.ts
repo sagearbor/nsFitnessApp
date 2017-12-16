@@ -1,6 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, ViewChild, OnInit, AfterViewInit, ChangeDetectorRef } from "@angular/core";
+import { ActionItem } from "ui/action-bar";
 import {Observable} from 'rxjs/Observable';
-import {Page} from "ui/page";
+import { RadSideDrawerComponent, SideDrawerType } from "nativescript-pro-ui/sidedrawer/angular";
+import { RadSideDrawer } from 'nativescript-pro-ui/sidedrawer';
+
+
 import {BackendService, FirebaseService} from "../services";
 import {Gift} from "../models";
 import {RouterExtensions} from 'nativescript-angular/router/router-extensions';

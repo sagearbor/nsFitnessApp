@@ -1,10 +1,19 @@
 {
-  "description": "Trying to make map app, starting from Giftler. ... 11",
-  "license": "SEE LICENSE IN <your-license-filename>",
+  "name": "asdf",
+  "version": "0.0.2",
+  "description": "Trying to make map app, started from Giftler. ... 17",
+  "license": "MIT",
   "readme": "NativeScript Application",
-  "repository": "<fill-your-repository-here>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sagearbor/nsFitnessApp.git"
+  },
+  "author": "Sage Arbor <sagearbor+arborLife@gmail.com> (https://www.sagearbor.com/)",
   "nativescript": {
     "id": "org.nativescript.socialFitV0p001",
+    "tns-android": {
+      "version": "0.0.2"
+    },
     "tns-ios": {
       "version": "3.3.0"
     }
@@ -22,6 +31,7 @@
     "nativescript-camera": "^0.0.8",
     "nativescript-iqkeyboardmanager": "^1.0.1",
     "nativescript-plugin-firebase": "^4.0.3",
+    "nativescript-pro-ui": "^3.2.0",
     "nativescript-theme-core": "~1.0.2",
     "reflect-metadata": "~0.1.8",
     "rxjs": "~5.3.0",
