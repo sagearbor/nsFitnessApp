@@ -9,6 +9,9 @@
 ###         edited one button and saving as v11, saving to github.  
 ###   Version 9,10 will all be unfunctional
 ###   Added funcitonal click to moveALCreate in version12
+###   In Version18 Group creation working to write - UID, group name, description, ~privacy, ~date.  Storing privacy 
+###     but as any string and should be controlled dropdown or 0-1.  Date is a string and doesnt make sense so need to fix.  
+###     Group component has 'id' which I can maybe drop.  Need to add a new page to add members to group, also view groups.
 ###
 ### NEXT STEPS
 ###   1.06) Add sidedrawer (now free) - Join, Create --> Group, Game, Goal 

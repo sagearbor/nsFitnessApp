@@ -20,8 +20,8 @@ export class LoginComponent {
               private routerExtensions: RouterExtensions
             ) {
               this.user = new User();
-              this.user.email = "user@nativescript.org";
-              this.user.password = "password";
+              this.user.email = "sagearbor+guest@sagearbor.com";
+              this.user.password = "Password";
             }
 
  
@@ -62,7 +62,7 @@ export class LoginComponent {
 
     prompt({
       title: "Forgot Password",
-      message: "Enter the email address you used to register for Giftler to reset your password.",
+      message: "Enter the email address you used to register for ArborLife to reset your password.",
       defaultText: "",
       okButtonText: "Ok",
       cancelButtonText: "Cancel"
