@@ -7,7 +7,7 @@ import {Group} from "../models";
 import {RouterExtensions} from 'nativescript-angular/router/router-extensions';
 import {Router} from '@angular/router';
 import { SelectedIndexChangedEventData, ValueList } from "nativescript-drop-down";
-
+ 
 
 @Component({
   moduleId: module.id,
@@ -27,8 +27,8 @@ export class MoveALCreateComponent implements OnInit {
   public gift: Gift;
   public group: Group;
 
-  public selectedIndex: number = null;
-  public hint                  = "My Hint";
+  public privac: number = null;
+  public hint                  = "Choose Group permissions";
   public items: ValueList<string>;
   public cssClass: string      = "default";
 
@@ -48,12 +48,7 @@ ngOnInit(){
   this.message$ = <any>this.firebaseService.getMyMessage();
 
   this.items = new ValueList<string>();
-  for ( let loop = 0; loop < 200; loop++ ) {
-      this.items.push({
-          value:   `I${loop}`,
-          display: `Item ${loop}`,
-      });
-  }
+  this.items.push({value: `open`, display: `OPEN to world`} , {value: `closed`, display: `CLOSED - invite only group`});
 }
 
     public onchange(args: SelectedIndexChangedEventData) {

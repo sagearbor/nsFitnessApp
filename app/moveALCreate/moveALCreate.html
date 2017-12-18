@@ -1,10 +1,10 @@
-
+       
     <ActionBar title="MoveAL" icon="" class="action-bar">
       <ActionItem (tap)="logout()">
         <Button text="Logout" class="action-item"></Button>
       </ActionItem>      
     </ActionBar>
-
+ 
 <ScrollView>
     <StackLayout>
         <Label class="gold card" textWrap="true" [text]="message$ | async"></Label>
@@ -21,12 +21,13 @@
 
             <TextField hint="Description of group" class="input input-border" row="1" col="0" #group [(ngModel)]="description"></TextField>
             <TextField hint="Domainname" class="input input-border" row="1" col="1" #group [(ngModel)]="domainname"></TextField>
-
+        
             <DropDown #dd
                   [class]="cssClass"
-                  backroundColor="red"
+                  backroundColor="gray"
                   [items]="items"
-                  [(ngModel)]="selectedIndex"
+                  [(ngModel)]="privacy"
+		  [hint]="hint"
                   (selectedIndexChanged)="onchange($event)"
                   (opened)="onopen()"
                   (closed)="onclose()"
