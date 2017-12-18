@@ -2,10 +2,12 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { DropDownModule } from "nativescript-drop-down/angular";
 
 import { authProviders, appRoutes } from "./app.routes";
 import { AppComponent } from "./app.component";
 import { BackendService, FirebaseService, UtilsService } from "./services";
+
 
 import { LoginModule } from "./login/login.module";
 import { ListModule } from "./list/list.module";
@@ -30,6 +32,7 @@ import { ThinkALModule } from "./thinkAL/thinkAL.module";
     NativeScriptHttpModule,
     NativeScriptRouterModule,
     NativeScriptRouterModule.forRoot(appRoutes),
+    DropDownModule,
     LoginModule,
     MapNowModule,   
     ListModule,

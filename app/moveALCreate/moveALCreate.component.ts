@@ -6,7 +6,9 @@ import {Gift} from "../models";
 import {Group} from "../models";
 import {RouterExtensions} from 'nativescript-angular/router/router-extensions';
 import {Router} from '@angular/router';
- 
+import { SelectedIndexChangedEventData, ValueList } from "nativescript-drop-down";
+
+
 @Component({
   moduleId: module.id,
   selector: "al-moveALCreate",
@@ -25,6 +27,12 @@ export class MoveALCreateComponent implements OnInit {
   public gift: Gift;
   public group: Group;
 
+  public selectedIndex: number = null;
+  public hint                  = "My Hint";
+  public items: ValueList<string>;
+  public cssClass: string      = "default";
+
+
   public gifts$: Observable<any>;
   public groups$: Observable<any>;
   public message$: Observable<any>;
@@ -38,7 +46,34 @@ ngOnInit(){
   this.gifts$ = <any>this.firebaseService.getMyWishList();
   this.groups$ = <any>this.firebaseService.getMyGroupList();
   this.message$ = <any>this.firebaseService.getMyMessage();
+
+  this.items = new ValueList<string>();
+  for ( let loop = 0; loop < 200; loop++ ) {
+      this.items.push({
+          value:   `I${loop}`,
+          display: `Item ${loop}`,
+      });
+  }
 }
+
+    public onchange(args: SelectedIndexChangedEventData) {
+        console.log(`Drop Down selected index changed from ${args.oldIndex} to ${args.newIndex}. New value is "${this.items.getValue(
+            args.newIndex)}"`);
+    }
+
+    public onopen() {
+        console.log("Drop Down opened.");
+    }
+
+    public onclose() {
+        console.log("Drop Down closed.");
+    }
+
+    public changeStyles() {
+        this.cssClass = "changed-styles";
+    }
+
+
 
   addGroup() {
      this.group = new Group(

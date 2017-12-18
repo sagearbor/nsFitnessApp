@@ -22,7 +22,28 @@
             <TextField hint="Description of group" class="input input-border" row="1" col="0" #group [(ngModel)]="description"></TextField>
             <TextField hint="Domainname" class="input input-border" row="1" col="1" #group [(ngModel)]="domainname"></TextField>
 
-            <TextField hint="Privacy - make CB" class="input input-border" row="2" col="0" #group [(ngModel)]="privacy"></TextField>
+            <DropDown #dd
+                  [class]="cssClass"
+                  backroundColor="red"
+                  [items]="items"
+                  [(ngModel)]="selectedIndex"
+                  (selectedIndexChanged)="onchange($event)"
+                  (opened)="onopen()"
+                  (closed)="onclose()"
+                  row="2"
+                  colSpan="2">
+             </DropDown>
+        <Label text="Selected Index:"
+               row="3"
+               col="0"
+               fontSize="18"
+               verticalAlignment="bottom">
+        </Label>
+        <TextField [text]="selectedIndex"
+                   row="3"
+                   col="1">
+        </TextField>
+
 
 	</GridLayout>
     </StackLayout>
