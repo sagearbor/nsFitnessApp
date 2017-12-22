@@ -1,4 +1,4 @@
-<ActionBar class="action-bar" title="Giftler"></ActionBar>
+<ActionBar class="action-bar" title="ArborMove"></ActionBar>
     <StackLayout class="card">
         <Image class="logo" src="res://logo" stretch="none" horizontalAlignment="center"></Image>
         <StackLayout [class]="isLoggingIn ? 'form white' : 'form gold'">
@@ -8,5 +8,17 @@
             <Button [text]="isLoggingIn ? 'Login' : 'Register'" class="btn btn-primary" (tap)="submit()"></Button>
             <Button [text]="isLoggingIn ? 'Register' : 'Back to login'" (tap)="toggleDisplay()" class="btn"></Button>
             <Button horizontalAlignment="center" class="btn" text="Forgot password" (tap)="forgotPassword()" [opacity]="isLoggingIn ? 1 : 0"></Button>
-        </StackLayout>
+	</StackLayout>
+
+	<StackLayout [class]="isLoggingIn ? 'form white' : 'form gold'">
+            <TextField #secondaryEmail class="input input-border" hint="secondary Email" [(ngModel)]="user.secondaryEmail"></TextField>
+            <TextField #fName class="input input-border" hint="First Name"  [(ngModel)]="user.fName"></TextField>
+            <TextField #lName class="input input-border" hint="Second Name"  [(ngModel)]="user.lName"></TextField>
+	    <label for="exampleInput">Pick a date in 2013:</label> 
+	      <input type="date" id="exampleInput" name="dob" [(ngModel)]="user.dob" placeholder="yyyy-MM-dd" min="1900-01-01" max="2020-01-01" required />
+	    <TextField #gender class="input input-border" hint="Gender" [(ngModel)]="user.gender"></TextField>
+            <TextField #weight class="input input-border" hint="Weight (Lbs)" [(ngModel)]="user.weight"></TextField>
+            <TextField #goalWeight class="input input-border" hint="Goal Weight" [(ngModel)]="user.goalWeight"></TextField>
+            <TextField #favActivity class="input input-border" hint="Favorite Activity" [(ngModel)]="user.favActivity"></TextField>
+	</StackLayout>
    </StackLayout>

@@ -173,6 +173,21 @@ export class FirebaseService {
         });
   }
 
+
+
+  addNewUser(email: string, userUID:string, fName:string, lName:string, dob:number, gender:string, weight:string, goalWeight:string, favActivity:string) {
+    return firebase.push(
+        "/users",
+        { "email": email, "userUID": userUID, "fName": fName, "lName": lName, "dob": dob, "gender": gender, "weight": weight, "goalWeight": goalWeight,"favActivity": favActivity }
+        ).then(
+        function (result:any) {
+          return 'User added';
+        },
+        function (errorMessage:any) {
+          console.log(errorMessage);
+        });
+  }
+
   editGift(id:string, description: string, imagepath: string){
     this.publishUpdates();
     return firebase.update("/Gifts/"+id+"",{

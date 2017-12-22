@@ -7,7 +7,9 @@ import {Group} from "../models";
 import {RouterExtensions} from 'nativescript-angular/router/router-extensions';
 import {Router} from '@angular/router';
 import { SelectedIndexChangedEventData, ValueList } from "nativescript-drop-down";
- 
+import firebase = require("nativescript-plugin-firebase"); 
+
+
 
 @Component({
   moduleId: module.id,
@@ -21,13 +23,12 @@ export class MoveALCreateComponent implements OnInit {
   date: string;
   description: string;
   domainname: string;
-  privacy: string;
   members: string;
   UID: string;
   public gift: Gift;
   public group: Group;
 
-  public privac: number = null;
+  public privacy: string;
   public hint                  = "Choose Group permissions";
   public items: ValueList<string>;
   public cssClass: string      = "default";
@@ -90,7 +91,22 @@ ngOnInit(){
       this.domainname = "";
       this.privacy = "";
       alert(message);
-    })
+      })
+    console.log("GOT HEREE < ------------- ");
+    console.log(this.group);
+    console.log("GOT HEREE 22 < ------------- ");
+    console.log(JSON.stringify(this.group));
+    console.log("GOT HEREE 333 < ------------- ");
+    firebase.getCurrentUser().then(user => {
+      console.log(JSON.stringify("sageee uid --> " + user.uid + " - email --> " + user.email));
+      alert("User uid from FB: " + user.uid);
+        }, error => {
+      alert("Trouble in paradise: " + error);
+    });
+    console.log("GOT HEREE 4444 < ------------- ");
+    console.log("GOT HEREE 55555 < ------------- ");
+
+
   }
 
   delete(gift: Gift) {

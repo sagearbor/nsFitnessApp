@@ -4,7 +4,7 @@
         <Button text="Logout" class="action-item"></Button>
       </ActionItem>      
     </ActionBar>
- 
+                    
 <ScrollView>
     <StackLayout>
         <Label class="gold card" textWrap="true" [text]="message$ | async"></Label>
@@ -22,7 +22,9 @@
             <TextField hint="Description of group" class="input input-border" row="1" col="0" #group [(ngModel)]="description"></TextField>
             <TextField hint="Domainname" class="input input-border" row="1" col="1" #group [(ngModel)]="domainname"></TextField>
         
-            <DropDown #dd
+            <Button class="btn btn-primary" row="2" col="1" text="Save" (tap)="addGroup()"></Button>
+            
+	    <DropDown #dd
                   [class]="cssClass"
                   backroundColor="gray"
                   [items]="items"
@@ -31,7 +33,7 @@
                   (selectedIndexChanged)="onchange($event)"
                   (opened)="onopen()"
                   (closed)="onclose()"
-                  row="2"
+                  row="3"
                   colSpan="2">
              </DropDown>
         <Label text="Selected Index:"

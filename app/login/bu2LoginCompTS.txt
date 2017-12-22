@@ -4,7 +4,6 @@ import {User, Gift, Group} from "../models";
 import {FirebaseService} from '../services';
 import {prompt} from "ui/dialogs";
 import { RouterExtensions } from 'nativescript-angular/router/router-extensions';
-import { BackendService } from "../services/backend.service";
 
 @Component({
   moduleId: module.id,
@@ -20,7 +19,7 @@ export class LoginComponent {
   password: string;
   fName: string;
   lName: string;
-  dob: number;
+  dob: string;
   gender: string;
   weight: string;
   goalWeight: string;
@@ -58,6 +57,17 @@ export class LoginComponent {
   }
 
   signUp() {
+    this.user = new User(
+      this.userUID,
+      this.email,
+      this.password,
+      this.fName,
+      this.lName,
+      this.dob,
+      this.gender,
+      this.weight,
+      this.goalWeight,
+      this.favActivity);
 
     this.firebaseService.register(this.user)
       .then(() => {
@@ -69,9 +79,8 @@ export class LoginComponent {
         this.isAuthenticating = false;
 	});
   
-        let newUser = {email: this.user.email , userUID: BackendService.token , fName: this.user.fName , lName: this.user.lName , dob: Date.now() , gender: this.user.gender , weight: this.user.weight , goalWeight: this.user.goalWeight , favActivity: this.user.favActivity };
-
-    this.firebaseService.addNewUser(newUser.email,newUser.userUID,newUser.fName,newUser.lName,newUser.dob,newUser.gender,newUser.weight,newUser.goalWeight,newUser.favActivity).then((message:any) => {
+      let newUser = this.user;
+    this.firebaseService.addNewUser(newUser).then((message:any) => {
       alert(message);
     })
   }
