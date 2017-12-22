@@ -12,7 +12,9 @@
 ###   In Version18 Group creation working to write - UID, group name, description, ~privacy, ~date.  Storing privacy 
 ###     but as any string and should be controlled dropdown or 0-1.  Date is a string and doesnt make sense so need to fix.  
 ###     Group component has 'id' which I can maybe drop.  Need to add a new page to add members to group, also view groups.
-###
+###   In Version20 - writing to User (cap U).  Also writing admin when creating a new group. TODO - currently hard sets admin
+###     as current user, but should add (push?) current user to add to admins OR fail if group already exists probably.
+###    
 ### NEXT STEPS
 ###   1.06) Add sidedrawer (now free) - Join, Create --> Group, Game, Goal 
 ###          https://www.nativescript.org/blog/using-cross-platform-native-sidedrawer-component-in-nativescript

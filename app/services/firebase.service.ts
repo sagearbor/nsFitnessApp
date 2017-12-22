@@ -160,10 +160,10 @@ export class FirebaseService {
         }); 
   }
 
-  addGroup(group: string, description:string, domainname:string, privacy:string) {
+  addGroup(group: string, description:string, domainname:string, privacy:string, admins:string) {
     return firebase.push(
         "/Groups",
-        { "name": group, "description": description, "domainname": domainname, "privacy": privacy, "UID": BackendService.token, "date": 0 - Date.now()}
+        { "name": group, "description": description, "domainname": domainname, "privacy": privacy, "admins": admins, "date": 0 - Date.now()}
       ).then(
         function (result:any) {
           return 'Group added - you are admin of the group!';
@@ -177,7 +177,7 @@ export class FirebaseService {
 
   addNewUser(email: string, userUID:string, fName:string, lName:string, dob:number, gender:string, weight:string, goalWeight:string, favActivity:string) {
     return firebase.push(
-        "/users",
+        "/Users",
         { "email": email, "userUID": userUID, "fName": fName, "lName": lName, "dob": dob, "gender": gender, "weight": weight, "goalWeight": goalWeight,"favActivity": favActivity }
         ).then(
         function (result:any) {

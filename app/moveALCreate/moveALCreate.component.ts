@@ -10,7 +10,6 @@ import { SelectedIndexChangedEventData, ValueList } from "nativescript-drop-down
 import firebase = require("nativescript-plugin-firebase"); 
 
 
-
 @Component({
   moduleId: module.id,
   selector: "al-moveALCreate",
@@ -24,6 +23,7 @@ export class MoveALCreateComponent implements OnInit {
   description: string;
   domainname: string;
   members: string;
+  admins: string;
   UID: string;
   public gift: Gift;
   public group: Group;
@@ -80,12 +80,15 @@ ngOnInit(){
       this.domainname,
       this.privacy,
       this.members,
-      this.UID)
+      this.admins,
+      this.UID) 
+    this.group.admins = BackendService.token;
     let groupName:string = this.group.name;
     let groupDescription:string = this.group.description;
     let groupDomainname:string = this.group.domainname;
     let groupPrivacy:string = this.group.privacy;
-    this.firebaseService.addGroup(groupName,groupDescription,groupDomainname,groupPrivacy).then((message:any) => {
+    let groupAdmins:string = this.group.admins;
+    this.firebaseService.addGroup(groupName,groupDescription,groupDomainname,groupPrivacy,groupAdmins).then((message:any) => {
       this.name = "";
       this.description = "";
       this.domainname = "";

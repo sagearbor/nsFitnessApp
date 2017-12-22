@@ -8,6 +8,7 @@ export class Group {
 	public domainname: string,
 	public privacy: string,
 	public members: string,
+        public admins: string, 
         public UID: string 
 	)
     {}   
