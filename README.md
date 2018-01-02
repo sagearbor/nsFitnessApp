@@ -13,8 +13,8 @@
 ###     but as any string and should be controlled dropdown or 0-1.  Date is a string and doesnt make sense so need to fix.  
 ###     Group component has 'id' which I can maybe drop.  Need to add a new page to add members to group, also view groups.
 ###   In Version21 - writing to User (cap U).  Also writing admin when creating a new group.  Also changed date to datInMilliseconds
-###     and plan to have similar for user.  Hardcoded open into uesr group privacy, fix in spring. Next todo add admin as member. 
-###     TODO - for user I will have dobYYYY, dobMM, dobDD, and then concatenate them and use 
+###     and plan to have similar for user.  Hardcoded open into uesr group privacy, fix in spring. Add admin itoken as member, 
+###     need to make array and include uesrId. TODO - for user I will have dobYYYY, dobMM, dobDD, and then concatenate them and use 
 ###     dateparse() maybe to also store dobInMilliseconds.  Currently hard sets admin
 ###     as current user, but should add (push?) current user to add to admins OR fail if group already exists probably.
 ###    

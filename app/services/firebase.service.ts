@@ -160,10 +160,10 @@ export class FirebaseService {
         }); 
   }
 
-  addGroup(group: string, description:string, domainname:string, privacy:string, admins:string) {
+  addGroup(group: string, description:string, domainname:string, privacy:string, admins:string, members:string) {
     return firebase.push(
         "/Groups",
-        { "name": group, "description": description, "domainname": domainname, "privacy": privacy, "admins": admins, "dateInMilliseconds": 0 - Date.now()}
+        { "name": group, "description": description, "domainname": domainname, "privacy": privacy, "admins": admins, "members": members, "dateInMilliseconds": 0 - Date.now()}
       ).then(
         function (result:any) {
           return 'Group added - you are admin of the group!';

@@ -82,14 +82,15 @@ ngOnInit(){
       this.admins,
       this.UID) 
     this.group.admins = BackendService.token;
+    this.group.members = BackendService.token;
+    let groupAdmins:string = this.group.admins;
+    let groupMembers:string = this.group.members;
     let groupName:string = this.group.name;
     let groupDescription:string = this.group.description;
     let groupDomainname:string = this.group.domainname;
-    let groupPrivacy:string = this.group.privacy;
-    groupPrivacy = "open";
+    let groupPrivacy = "open";
     this.privacy = "oPenNOTUSED-setThisPrviacy";
-    let groupAdmins:string = this.group.admins;
-    this.firebaseService.addGroup(groupName,groupDescription,groupDomainname,groupPrivacy,groupAdmins).then((message:any) => {
+    this.firebaseService.addGroup(groupName,groupDescription,groupDomainname,groupPrivacy,groupAdmins,groupMembers).then((message:any) => {
       this.name = "";
       this.description = "";
       this.domainname = "";
