@@ -3,7 +3,7 @@ export class Group {
       (
         public id: string,
         public name: string,
-        public date: string,
+        public dateInMilliseconds: string,
         public description: string,
 	public domainname: string,
 	public privacy: string,

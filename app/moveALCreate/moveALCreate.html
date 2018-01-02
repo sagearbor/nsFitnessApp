@@ -4,7 +4,7 @@
         <Button text="Logout" class="action-item"></Button>
       </ActionItem>      
     </ActionBar>
-                    
+                      
 <ScrollView>
     <StackLayout>
         <Label class="gold card" textWrap="true" [text]="message$ | async"></Label>
@@ -22,7 +22,7 @@
             <TextField hint="Description of group" class="input input-border" row="1" col="0" #group [(ngModel)]="description"></TextField>
             <TextField hint="Domainname" class="input input-border" row="1" col="1" #group [(ngModel)]="domainname"></TextField>
         
-            <Button class="btn btn-primary" row="2" col="1" text="Save" (tap)="addGroup()"></Button>
+            <Button class="btn btn-primary" row="2" col="0" text="Save" (tap)="addGroup()"></Button>
             
 	    <DropDown #dd
                   [class]="cssClass"
@@ -34,6 +34,7 @@
                   (opened)="onopen()"
                   (closed)="onclose()"
                   row="3"
+
                   colSpan="2">
              </DropDown>
         <Label text="Selected Index:"
@@ -42,10 +43,19 @@
                fontSize="18"
                verticalAlignment="bottom">
         </Label>
+
         <TextField [text]="selectedIndex"
                    row="3"
                    col="1">
         </TextField>
+
+             <select id="mySelect" row="4" col="1">
+               <option>Apple</option>
+               <option>Orange</option>
+               <option selected>Pineapple</option>
+               <option>Banana</option>
+             </select>
+
 
 
 	</GridLayout>
@@ -64,33 +74,17 @@
 
 
     <StackLayout class="card">
-        <ListView [items]="gifts$ | async"  height="300">
+        <ListView [items]="Groups$ | async"  height="300">
 	    <ng-template let-item="item">
 	        <GridLayout columns="auto,*,auto">
-			<Image class="m-5" horizontalAlignment="left" col="0" width="40" height="40" [src]="item.imagepath.length>0 ? item.imagepath : '~/assets/camera.png'"></Image>
-			<Label class="m-5"  (tap)="viewDetail(item.id)" col="1" [text]='item.name'></Label>
-			<Image class="m-5" col="2" horizontalAlignment="right" width="40" height="40" (tap)="delete(item)" [src]="'~/assets/trash.png'"></Image>
+		<span> WHERE IS HERE??? </span>
+			<Label class="m-5"  (tap)="viewDetail(item.id)" col="1" [text]='item.name'>Blah1</Label>
 		</GridLayout>
 	    </ng-template>
         </ListView>
     </StackLayout>
 
-
-
-
-
-    <StackLayout class="card">
-        <Label class="font-weight-bold" textWrap="true" [text]="message$ | async"></Label>
-        <GridLayout columns="2*,1*" class="form">
-            <TextField class="input input-border" col="0" #gift [(ngModel)]="name"></TextField>
-            <Button class="btn btn-primary" col="1" text="Save" (tap)="add()"></Button>
-        </GridLayout>
-    <Label class="h2 header" text="My Wish List">xx random text xxx</Label>
-    </StackLayout>
-    </StackLayout>
-
-
-
+</StackLayout>
 </ScrollView>
 
 

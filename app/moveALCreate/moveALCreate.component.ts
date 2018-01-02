@@ -19,7 +19,7 @@ import firebase = require("nativescript-plugin-firebase");
 export class MoveALCreateComponent implements OnInit {
   id: string;
   name: string;
-  date: string;
+  dateInMilliseconds: string;
   description: string;
   domainname: string;
   members: string;
@@ -47,10 +47,9 @@ ngOnInit(){
   this.gifts$ = <any>this.firebaseService.getMyWishList();
   this.groups$ = <any>this.firebaseService.getMyGroupList();
   this.message$ = <any>this.firebaseService.getMyMessage();
-
   this.items = new ValueList<string>();
-  this.items.push({value: `open`, display: `OPEN to world`} , {value: `closed`, display: `CLOSED - invite only group`});
-}
+  this.items.push({value: 'notSet', display: 'SET privacy'}, {value: `open1`, display: `OPEN to world`} , {value: `closed`, display: `CLOSED - invite only group`});
+  }
 
     public onchange(args: SelectedIndexChangedEventData) {
         console.log(`Drop Down selected index changed from ${args.oldIndex} to ${args.newIndex}. New value is "${this.items.getValue(
@@ -75,7 +74,7 @@ ngOnInit(){
      this.group = new Group(
       this.id,
       this.name,
-      this.date,
+      this.dateInMilliseconds,
       this.description,
       this.domainname,
       this.privacy,
@@ -87,12 +86,14 @@ ngOnInit(){
     let groupDescription:string = this.group.description;
     let groupDomainname:string = this.group.domainname;
     let groupPrivacy:string = this.group.privacy;
+    groupPrivacy = "open";
+    this.privacy = "oPenNOTUSED-setThisPrviacy";
     let groupAdmins:string = this.group.admins;
     this.firebaseService.addGroup(groupName,groupDescription,groupDomainname,groupPrivacy,groupAdmins).then((message:any) => {
       this.name = "";
       this.description = "";
       this.domainname = "";
-      this.privacy = "";
+      this.privacy = "oPenFIX-InAddGroupCall";
       alert(message);
       })
     console.log("GOT HEREE < ------------- ");
@@ -107,7 +108,10 @@ ngOnInit(){
       alert("Trouble in paradise: " + error);
     });
     console.log("GOT HEREE 4444 < ------------- ");
+    console.log(JSON.stringify(this.privacy));
     console.log("GOT HEREE 55555 < ------------- ");
+    console.log(JSON.stringify(this.privacy));
+    console.log("GOT HEREE 666666 < ------------- ");
 
 
   }
