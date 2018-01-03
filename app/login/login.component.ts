@@ -32,7 +32,7 @@ export class LoginComponent {
               private routerExtensions: RouterExtensions
             ) {
               this.user = new User();
-              this.user.email = "sagearbor+guest@sagearbor.com";
+              this.user.email = "sagearbor+ALguest@sagearbor.com";
 	      this.user.password = "Password";
             }
  
@@ -69,7 +69,7 @@ export class LoginComponent {
         this.isAuthenticating = false;
 	});
   
-        let newUser = {email: this.user.email , userUID: BackendService.token , fName: this.user.fName , lName: this.user.lName , dob: Date.now() , gender: this.user.gender , weight: this.user.weight , goalWeight: this.user.goalWeight , favActivity: this.user.favActivity };
+        let newUser = {email: this.user.email , userUID: user.uid , fName: this.user.fName , lName: this.user.lName , dob: Date.now() , gender: this.user.gender , weight: this.user.weight , goalWeight: this.user.goalWeight , favActivity: this.user.favActivity };
 
     this.firebaseService.addNewUser(newUser.email,newUser.userUID,newUser.fName,newUser.lName,newUser.dob,newUser.gender,newUser.weight,newUser.goalWeight,newUser.favActivity).then((message:any) => {
       alert(message);
