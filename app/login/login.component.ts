@@ -5,6 +5,7 @@ import {FirebaseService} from '../services';
 import {prompt} from "ui/dialogs";
 import { RouterExtensions } from 'nativescript-angular/router/router-extensions';
 import { BackendService } from "../services/backend.service";
+import firebase = require("nativescript-plugin-firebase");
 
 @Component({
   moduleId: module.id,
@@ -58,7 +59,7 @@ export class LoginComponent {
   }
 
   signUp() {
-
+  
     this.firebaseService.register(this.user)
       .then(() => {
         this.isAuthenticating = false;
@@ -68,8 +69,8 @@ export class LoginComponent {
         alert(message);
         this.isAuthenticating = false;
 	});
-  
-        let newUser = {email: this.user.email , userUID: user.uid , fName: this.user.fName , lName: this.user.lName , dob: Date.now() , gender: this.user.gender , weight: this.user.weight , goalWeight: this.user.goalWeight , favActivity: this.user.favActivity };
+
+        let newUser = {email: this.user.email , userUID: BackendService.token , fName: this.user.fName , lName: this.user.lName , dob: Date.now() , gender: this.user.gender , weight: this.user.weight , goalWeight: this.user.goalWeight , favActivity: this.user.favActivity };
 
     this.firebaseService.addNewUser(newUser.email,newUser.userUID,newUser.fName,newUser.lName,newUser.dob,newUser.gender,newUser.weight,newUser.goalWeight,newUser.favActivity).then((message:any) => {
       alert(message);

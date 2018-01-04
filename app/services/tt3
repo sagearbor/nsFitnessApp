@@ -27,6 +27,13 @@ export class FirebaseService {
             return JSON.stringify(result);
 	  },
           function (errorMessage:any) {
+            alert({
+              title: "No user created",
+              message: errorMessage,
+              okButtonText: "OK, got it"
+            })
+          },
+          function (errorMessage:any) {
             alert(errorMessage);
           }
       )
@@ -39,8 +46,7 @@ export class FirebaseService {
       passwordOptions: {
         email: user.email,
         password: user.password 
-        }
-	}).then((result: any) => {
+      }
           BackendService.token = result.uid;
           return JSON.stringify(result);
       }, (errorMessage: any) => {
@@ -55,7 +61,7 @@ export class FirebaseService {
   
   resetPassword(email) {
     return firebase.resetPassword({
-    email: email
+    passwordOptions.email: email
     }).then((result: any) => {
           alert(JSON.stringify(result));
         },

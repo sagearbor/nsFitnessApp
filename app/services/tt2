@@ -25,7 +25,7 @@ export class FirebaseService {
     }).then(
           function (result:any) {
             return JSON.stringify(result);
-	  },
+          },
           function (errorMessage:any) {
             alert(errorMessage);
           }
@@ -34,13 +34,10 @@ export class FirebaseService {
 
   login(user: User) {
     return firebase.login({
-      type: firebase.LoginType.PASSWORD, // or GOOGLE / FACEBOOK
-      // this is only required in type == PASSWORD
-      passwordOptions: {
-        email: user.email,
-        password: user.password 
-        }
-	}).then((result: any) => {
+      type: firebase.LoginType.PASSWORD,
+      email: user.email,
+      password: user.password
+    }).then((result: any) => {
           BackendService.token = result.uid;
           return JSON.stringify(result);
       }, (errorMessage: any) => {
@@ -184,11 +181,89 @@ export class FirebaseService {
         { "email": email, "userUID": userUID, "fName": fName, "lName": lName, "dob": dob, "gender": gender, "weight": weight, "goalWeight": goalWeight,"favActivity": favActivity }
 	).then(
         function (result:any) {
-          return 'User added2';
+          return 'User added';
         },
         function (errorMessage:any) {
           console.log(errorMessage);
         });
+
+    firebase.set(
+        "/Users2",
+        ({ fName+" "+lName: { "email": email, "userUID": userUID, "fName": fName, "lName": lName, "dob": dob, "gender": gender, "weight": weight, "goalWeight": goalWeight,"favActivity": favActivity }})
+	).then(
+        function (result:any) {
+          return 'User added';
+        },
+        function (errorMessage:any) {
+          console.log(errorMessage);
+        });
+
+  }
+
+  editGift(id:string, description: string, imagepath: string){
+    this.publishUpdates();
+    return firebase.update("/Gifts/"+id+"",{
+        description: description, 
+        imagepath: imagepath})
+      .then(
+        function (result:any) {
+          return 'You have successfully edited this gift!';
+        },
+        function (errorMessage:any) {
+          console.log(errorMessage);
+        });  
+	}
+
+  editDescription(id:string, description: string){
+    this.publishUpdates();
+    return firebase.update("/Gifts/"+id+"",{
+        description: description})
+      .then(
+        function (result:any) {
+          return 'You have successfully edited the description!';
+        },
+        function (errorMessage:any) {
+          console.log(errorMessage);
+        });  
+	}
+
+  delete(gift: Gift) {
+    return firebase.remove("/Gifts/"+gift.id+"")
+      .catch(this.handleErrors);
+  }
+  
+  uploadFile(localPath: string, file?: any): Promise<any> {
+      let filename = this.utils.getFilename(localPath);
+      let remotePath = `${filename}`;   
+      return firebase.uploadFile({
+        remoteFullPath: remotePath,
+        localFullPath: localPath,
+        onProgress: function(status) {
+            console.log("Uploaded fraction: " + status.fractionCompleted);
+            console.log("Percentage complete: " + status.percentageCompleted);
+        }
+      });
+  }
+
+  getDownloadUrl(remoteFilePath: string): Promise<any> {
+      return firebase.getDownloadUrl({
+        remoteFullPath: remoteFilePath})
+      .then(
+        function (url:string) {
+          return url;
+        },
+        function (errorMessage:any) {
+          console.log(errorMessage);
+        });
+}
+
+  handleErrors(error) {
+    console.log(JSON.stringify(error));
+    return Promise.reject(error.message);
+  }
+}
+
+
   }
 
   editGift(id:string, description: string, imagepath: string){
