@@ -23,13 +23,44 @@ export class FirebaseService {
       email: user.email,
       password: user.password
     }).then(
-          function (result:any) {
+         function (result:any) {
+            console.log(JSON.stringify(result));
+            console.log("00000066666666666666666666666" + JSON.stringify(result));
+	    user.userUID = result.key;
+	    console.log("06666666666666666666666666666" + JSON.stringify(result.key));
+	    console.log("16666666666666666666666666666" + JSON.stringify(user.userUID));
+	    user.userUID = JSON.stringify(result.key);
+	    console.log("26666666666666666666666666666" + JSON.stringify(user));
+	    console.log("36666666666666666666666666666" + JSON.stringify(user.userUID));
+	    console.log("46666666666666666666666666666" + JSON.stringify(user.dobInMilliseconds));
+
+            firebase.setValue('/Users/' + user.userUID, {
+	      email: user.email , 
+	      userUID: user.userUID , 
+	      fName: user.fName , 
+	      lName: user.lName ,
+              dobYYYY: user.dobYYYY ,
+              dobMM: user.dobMM   ,
+              dobDD: user.dobDD  ,
+	      gender: user.gender , 
+	      weight: user.weight , 
+	      goalWeight: user.goalWeight , 
+	      favActivity: user.favActivity
+                     })
+            console.log("56666666666666666666666666666" + JSON.stringify(result));
+            /** console.log(this.user.fName); */
+            console.log("76666666666666666666666666666" + JSON.stringify(result));
             return JSON.stringify(result);
 	  },
           function (errorMessage:any) {
             alert(errorMessage);
           }
-      )
+	  )
+	  /**
+	  .then(function(data) {
+	    config.token = data.Result.access_token;
+	    });
+	    */
   }
 
   login(user: User) {

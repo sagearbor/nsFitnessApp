@@ -17,9 +17,9 @@
 ###     need to make array and include uesrId. TODO - for user I will have dobYYYY, dobMM, dobDD, and then concatenate them and use 
 ###     dateparse() maybe to also store dobInMilliseconds.  Currently hard sets admin
 ###     as current user, but should add (push?) current user to add to admins OR fail if group already exists probably.
-###   In Version22 - added userId (in 'users' to match Firebase login ... but users has its own key which is different
-###     likely change but will need FBservice addNewUser to change from push to set
-###        https://firebase.google.com/docs/database/admin/save-data    
+###   In Version23 - added userId in 'users' to match Firebase login with SMAE uid, also got fields inputting in user - need to fix quotes. 
+###   In Version24 - started to get datePicker working, dobYYY, dobMM, dobDD stored in FB, but not concat as date.
+###   
 ### NEXT STEPS
 ###   1.06) Add sidedrawer (now free) - Join, Create --> Group, Game, Goal 
 ###          https://www.nativescript.org/blog/using-cross-platform-native-sidedrawer-component-in-nativescript

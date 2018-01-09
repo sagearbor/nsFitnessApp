@@ -5,7 +5,10 @@ export class User {
   username: string;
   fName: string;
   lName: string;
-  dob: string;
+  dobYYYY: string;
+  dobMM: string;
+  dobDD: string;
+  dobInMilliseconds: string;
   gender: string;
   weight: string;
   goalWeight: string;

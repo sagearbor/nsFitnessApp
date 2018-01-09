@@ -9,11 +9,15 @@
             <Button [text]="isLoggingIn ? 'Register' : 'Back to login'" (tap)="toggleDisplay()" class="btn"></Button>
             <Button horizontalAlignment="center" class="btn" text="Forgot password" (tap)="forgotPassword()" [opacity]="isLoggingIn ? 1 : 0"></Button>
 	</StackLayout>
-  
+       
 	<StackLayout [class]="isLoggingIn ? 'form white' : 'form gold'">
             <TextField #secondaryEmail class="input input-border" hint="secondary Email" [(ngModel)]="user.secondaryEmail"></TextField>
             <TextField #fName class="input input-border" hint="First Name"  [(ngModel)]="user.fName"></TextField>
             <TextField #lName class="input input-border" hint="Second Name"  [(ngModel)]="user.lName"></TextField>
+
+            <DatePicker (loaded)="onPickerLoaded($event)" (dateChange)="onDateChanged($event)" 
+                  (dayChange)="onDayChanged($event)" (monthChange)="onMonthChanged($event)" (yearChange)="onYearChanged($event)" verticalAlignment="center"></DatePicker>
+
 	    <label for="exampleInput">Pick a date in 2013:</label> 
 	      <input type="date" id="exampleInput" name="dob" [(ngModel)]="user.dob" placeholder="yyyy-MM-dd" min="1900-01-01" max="2020-01-01" required />
 	    <TextField #username class="input input-border" hint="usernamee" [(ngModel)]="user.username"></TextField>
