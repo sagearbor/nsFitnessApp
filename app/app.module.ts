@@ -3,6 +3,9 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { DropDownModule } from "nativescript-drop-down/angular";
+import { MinLengthDirective, IsEmailDirective } from "./input.directive";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
+
 
 import { authProviders, appRoutes } from "./app.routes";
 import { AppComponent } from "./app.component";
@@ -29,6 +32,7 @@ import { ThinkALModule } from "./thinkAL/thinkAL.module";
   ],
   imports: [
     NativeScriptModule,
+    NativeScriptFormsModule,
     NativeScriptHttpModule,
     NativeScriptRouterModule,
     NativeScriptRouterModule.forRoot(appRoutes),
@@ -45,7 +49,11 @@ import { ThinkALModule } from "./thinkAL/thinkAL.module";
   ],
   declarations: [
       AppComponent,
-  ],
-  bootstrap: [AppComponent]
-})
+      MinLengthDirective    
+      ],
+  bootstrap: [AppComponent],
+  schemas: [
+          NO_ERRORS_SCHEMA
+	  ]
+  })
 export class AppModule { }

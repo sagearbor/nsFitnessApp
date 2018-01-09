@@ -19,7 +19,7 @@
 ###     as current user, but should add (push?) current user to add to admins OR fail if group already exists probably.
 ###   In Version23 - added userId in 'users' to match Firebase login with SMAE uid, also got fields inputting in user - need to fix quotes. 
 ###   In Version24 - started to get datePicker working, dobYYY, dobMM, dobDD stored in FB, but not concat as date.
-###   
+###     Username and password required to be 6 characters long and email needs @. 
 ### NEXT STEPS
 ###   1.06) Add sidedrawer (now free) - Join, Create --> Group, Game, Goal 
 ###          https://www.nativescript.org/blog/using-cross-platform-native-sidedrawer-component-in-nativescript

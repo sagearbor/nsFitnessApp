@@ -1,17 +1,29 @@
 <ActionBar class="action-bar" title="ArborMove"></ActionBar>
     <StackLayout class="card">
         <Image class="logo" src="res://logo" stretch="none" horizontalAlignment="center"></Image>
-        <StackLayout [class]="isLoggingIn ? 'form white' : 'form gold'">
-            <TextField #email class="input input-border" hint="Email Address" keyboardType="email" [(ngModel)]="user.email" autocorrect="false"
-                autocapitalizationType="none"></TextField>
-            <TextField #password class="input input-border" hint="Password" secure="true" [(ngModel)]="user.password"></TextField>
-            <Button [text]="isLoggingIn ? 'Login' : 'Register'" class="btn btn-primary" (tap)="submit()"></Button>
+	<StackLayout class="inputField">
+            <TextField #email="ngModel" class="input" hint="Email Address" keyboardType="email" [(ngModel)]="user.email" autocorrect="false"
+                autocapitalizationType="none" required email></TextField>
+            <TextField #password="ngModel" class="input" hint="Password" secure="true" [(ngModel)]="user.password" minlength="6" required password></TextField>
+	    <Button [text]="isLoggingIn ? 'Login' : 'Register'" class="btn btn-primary" (tap)="submit()"></Button>
             <Button [text]="isLoggingIn ? 'Register' : 'Back to login'" (tap)="toggleDisplay()" class="btn"></Button>
             <Button horizontalAlignment="center" class="btn" text="Forgot password" (tap)="forgotPassword()" [opacity]="isLoggingIn ? 1 : 0"></Button>
 	</StackLayout>
-       
-	<StackLayout [class]="isLoggingIn ? 'form white' : 'form gold'">
-            <TextField #username class="input input-border" hint="username (letters & Numbers)" [(ngModel)]="user.username"></TextField>
+        <StackLayout *ngIf="email.errors && (email.dirty || email.touched)">
+            <Label *ngIf="email.errors.required" text="- An email is required -"></Label>
+            <Label *ngIf="email.errors.email" text="- Email must be valid -"></Label>
+        </StackLayout>
+        <StackLayout *ngIf="password.errors && (password.dirty || password.touched)">
+            <Label *ngIf="password.errors.required" text="- A password is required -"></Label>
+            <Label *ngIf="password.errors.minlength" text="- Password must be longer than 6 characters"></Label>
+        </StackLayout>
+	<StackLayout *ngIf="username.errors">
+            <Label *ngIf="username.errors.required" text="- A username is required -"></Label>
+            <Label *ngIf="username.errors.minlength" text="- Usernamee must be longer than 665x characters"></Label>
+        </StackLayout>
+
+	<StackLayout class="inputField">
+            <TextField #username="ngModel" class="input" hint="username (letters & Numbers)" minlength="6" [(ngModel)]="user.username" required username></TextField>
             <TextField #fName class="input input-border" hint="First Name"  [(ngModel)]="user.fName"></TextField>
             <TextField #lName class="input input-border" hint="Second Name"  [(ngModel)]="user.lName"></TextField>
 
@@ -20,7 +32,6 @@
 
 	    <label for="exampleInput">Pick a date in 2013:</label> 
 	      <input type="date" id="exampleInput" name="dob" [(ngModel)]="user.dob" placeholder="yyyy-MM-dd" min="1900-01-01" max="2020-01-01" required />
-	    <TextField #username class="input input-border" hint="usernamee" [(ngModel)]="user.username"></TextField>
 	    <TextField #gender class="input input-border" hint="Gender" [(ngModel)]="user.gender"></TextField>
             <TextField #weight class="input input-border" hint="Weight (Lbs)" [(ngModel)]="user.weight"></TextField>
             <TextField #goalWeight class="input input-border" hint="Goal Weight" [(ngModel)]="user.goalWeight"></TextField>
