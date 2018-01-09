@@ -37,6 +37,7 @@ export class FirebaseService {
             firebase.setValue('/Users/' + user.userUID, {
 	      email: user.email , 
 	      userUID: user.userUID , 
+	      username: user.username , 
 	      fName: user.fName , 
 	      lName: user.lName ,
               dobYYYY: user.dobYYYY ,

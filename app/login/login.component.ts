@@ -21,6 +21,7 @@ export class LoginComponent {
   userUID: string;
   email: string;
   password: string;
+  username: string;
   fName: string;
   lName: string;
   dobYYYY: string;

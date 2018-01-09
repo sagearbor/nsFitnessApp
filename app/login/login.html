@@ -11,7 +11,7 @@
 	</StackLayout>
        
 	<StackLayout [class]="isLoggingIn ? 'form white' : 'form gold'">
-            <TextField #secondaryEmail class="input input-border" hint="secondary Email" [(ngModel)]="user.secondaryEmail"></TextField>
+            <TextField #username class="input input-border" hint="username (letters & Numbers)" [(ngModel)]="user.username"></TextField>
             <TextField #fName class="input input-border" hint="First Name"  [(ngModel)]="user.fName"></TextField>
             <TextField #lName class="input input-border" hint="Second Name"  [(ngModel)]="user.lName"></TextField>
 
@@ -25,5 +25,6 @@
             <TextField #weight class="input input-border" hint="Weight (Lbs)" [(ngModel)]="user.weight"></TextField>
             <TextField #goalWeight class="input input-border" hint="Goal Weight" [(ngModel)]="user.goalWeight"></TextField>
             <TextField #favActivity class="input input-border" hint="Favorite Activity" [(ngModel)]="user.favActivity"></TextField>
+            <TextField #secondaryEmail class="input input-border" hint="secondary Email" [(ngModel)]="user.secondaryEmail"></TextField>
 	</StackLayout>
    </StackLayout>
